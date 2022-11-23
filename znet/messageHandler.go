@@ -78,7 +78,7 @@ func (mh *MsgHandle) StartOneWorker(workerID int, taskQueue chan ziface.IRequest
 
 // 将消息交给TaskQueue， 由worker进行处理
 func (mh *MsgHandle) SendMsgToTaskQueue(request ziface.IRequest) {
-	// 将消息平均分配给不同的worker， 按照轮询
+	// todo  将消息平均分配给不同的worker， 按照简单轮询  后期优化
 	workerID := request.GetConnection().GetConnID() % mh.WorkerPoolSize
 	fmt.Println("Add connID = ", request.GetConnection().GetConnID(), " request Msgid = ", request.GetMsgID(), " to worker id = ", workerID, " is started")
 	mh.TaskQueue[workerID] <- request
