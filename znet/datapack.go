@@ -5,8 +5,8 @@ import (
 	"encoding/binary"
 	"errors"
 	"fmt"
-	"zinx/utils"
-	"zinx/ziface"
+	"zinx/shv-zinx_tcp/utils"
+	"zinx/shv-zinx_tcp/ziface"
 )
 
 /*

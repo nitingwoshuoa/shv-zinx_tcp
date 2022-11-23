@@ -3,8 +3,8 @@ package znet
 import (
 	"fmt"
 	"strconv"
-	"zinx/utils"
-	"zinx/ziface"
+	"zinx/shv-zinx_tcp/utils"
+	"zinx/shv-zinx_tcp/ziface"
 )
 
 /*
@@ -39,7 +39,7 @@ func (mh *MsgHandle) DoMsgHandler(request ziface.IRequest) {
 
 	handler.PreHandle(request)
 	handler.Handle(request)
-	handler.PostHandle(request)
+	handler.HostHandle(request)
 	// 根据msgid 调度对应router业务即可
 }
 func (mh *MsgHandle) AddRouter(msgID uint32, router ziface.IRouter) {

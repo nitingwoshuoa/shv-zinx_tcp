@@ -3,8 +3,8 @@ package znet
 import (
 	"fmt"
 	"net"
-	"zinx/utils"
-	"zinx/ziface"
+	"zinx/shv-zinx_tcp/utils"
+	"zinx/shv-zinx_tcp/ziface"
 )
 
 //Iserver 的接口实现，  定义一个Server的服务器模块
