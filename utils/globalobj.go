@@ -2,6 +2,7 @@ package utils
 
 import (
 	"encoding/json"
+	"gopkg.in/mgo.v2"
 	"io/ioutil"
 	"zinx/shv-zinx_tcp/ziface"
 )
@@ -26,6 +27,7 @@ type GlobalObj struct {
 }
 
 var GlobalObject *GlobalObj
+var MONGO_DB *mgo.Session
 
 func (g *GlobalObj) Reload() {
 	data, err := ioutil.ReadFile("conf/zinx.json")

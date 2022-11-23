@@ -8,8 +8,6 @@ import (
 	"time"
 )
 
-var MONGO_DB *mgo.Session
-
 func err_handler(err error) {
 	fmt.Printf("err_handler, error:%s\n", err.Error())
 	panic(err.Error())

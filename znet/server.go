@@ -27,17 +27,6 @@ type Server struct {
 	OnConnStop  func(conn ziface.IConnection)
 }
 
-// 定义当前客户端连接所绑定的handle api  目前这个handle是写死的，以后优化应该由用户自定义handle方法
-// func CallBackToClient(conn *net.TCPConn, data []byte, cnt int) error {
-// 	//回显的业务
-// 	fmt.Println("[Conn Handle] CallBackToClient ..")
-// 	if _, err := conn.Write(data[:cnt]); err != nil {
-// 		fmt.Println("write back buf err", err)
-// 		return errors.New("CallBackToCliente error")
-// 	}
-// 	return nil
-// }
-
 // 启动服务器
 func (s *Server) Start() {
 	fmt.Printf("[Zinx] Server Name :%s listenner at IP : %s, Port : %d is starting\n", utils.GlobalObject.Name, utils.GlobalObject.Host, utils.GlobalObject.TcpPort)
@@ -88,27 +77,6 @@ func (s *Server) Start() {
 
 			//启动当前的链接业务
 			go dealConn.Start()
-			// //已经与客户端建立了连接， 做一个最基本的512字节长度的回显业务
-			// go func() {
-			// 	for {
-			// 		buf := make([]byte, 512)
-			// 		cnt, err := conn.Read(buf)
-			// 		if err != nil {
-			// 			fmt.Println("recv buf err", err)
-			// 			continue
-			// 		}
-
-			// 		fmt.Printf("recv client buf %s, cnt %d\n", buf, cnt)
-
-			// 		//回显功能
-
-			// 		if _, err := conn.Write(buf[:cnt]); err != nil {
-			// 			fmt.Println("write back buf err", err)
-			// 			continue
-			// 		}
-
-			// 	}
-			// }()
 		}
 	}()
 
