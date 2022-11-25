@@ -11,11 +11,15 @@ data :: 2022年11月24日03:45:22
 package api
 
 import (
-	"zinx/shv-zinx_tcp/ziface"
-	"zinx/shv-zinx_tcp/znet"
+	"github.com/nitingwoshuoa/shv-zinx_tcp/ziface"
+	"github.com/nitingwoshuoa/shv-zinx_tcp/znet"
 )
 
 type C2S_Login struct {
+	znet.BaseRouter
+}
+
+type C2S_HeartPackage struct {
 	znet.BaseRouter
 }
 
@@ -26,4 +30,5 @@ type C2S_Login struct {
 
 func HandleRegsiter(server ziface.Iserver) {
 	server.AddRouter(1001, &C2S_Login{})
+	server.AddRouter(1002, &C2S_HeartPackage{})
 }

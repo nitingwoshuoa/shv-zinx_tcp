@@ -1,9 +1,8 @@
-package znet
+package zdbTool
 
 import (
 	"fmt"
 	"gopkg.in/mgo.v2"
-	_ "gopkg.in/mgo.v2/bson"
 	"log"
 	"time"
 )
@@ -25,7 +24,7 @@ func mgodbConnect() *mgo.Session {
 		Addrs:     []string{"127.0.0.1"},
 		Direct:    false,
 		Timeout:   time.Second * 1,
-		Database:  "game_report",
+		Database:  "zinxmongo",
 		Source:    "admin",
 		Username:  "shv",
 		Password:  "123456",

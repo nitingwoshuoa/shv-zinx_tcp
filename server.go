@@ -10,10 +10,14 @@ zinx项目的启动文件
 package main
 
 import (
-	"zinx/shv-zinx_tcp/trunk/api"
-	_ "zinx/shv-zinx_tcp/ziface"
-	"zinx/shv-zinx_tcp/znet"
+	"github.com/nitingwoshuoa/shv-zinx_tcp/trunk/api"
+	"github.com/nitingwoshuoa/shv-zinx_tcp/ziface"
+	"github.com/nitingwoshuoa/shv-zinx_tcp/znet"
 )
+
+func OnConnectionAdd(conn ziface.IConnection) {
+	conn.SetProperty("HeartCount", 0)
+}
 
 func main() {
 	//1 创建一个游戏服务器的server句柄，  使用Zinx的Api
@@ -21,7 +25,7 @@ func main() {
 	s := znet.NewServer("[Server Point]")
 
 	// 注册hook函数
-	s.Set
+	s.SetOnConnStart(OnConnectionAdd)
 	// 给当前zinx框架添加一个自定义的router
 	// s.AddRouter(0, &PingRouter{})
 	api.HandleRegsiter(s)

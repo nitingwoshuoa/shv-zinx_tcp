@@ -4,7 +4,8 @@ import (
 	"errors"
 	"fmt"
 	"sync"
-	"zinx/shv-zinx_tcp/ziface"
+
+	"github.com/nitingwoshuoa/shv-zinx_tcp/ziface"
 )
 
 /*

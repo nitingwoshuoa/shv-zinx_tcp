@@ -2,9 +2,10 @@ package utils
 
 import (
 	"encoding/json"
-	"gopkg.in/mgo.v2"
 	"io/ioutil"
-	"zinx/shv-zinx_tcp/ziface"
+
+	"github.com/nitingwoshuoa/shv-zinx_tcp/ziface"
+	"gopkg.in/mgo.v2"
 )
 
 type GlobalObj struct {
