@@ -1,0 +1,17 @@
+syntax="proto3";
+package pb;
+option go_package = "./pb";
+option csharp_namespace="Pb";
+
+
+message C2S_Login{
+    string username = 1;
+    string userpassword = 2;
+    int64 unix_time = 3;
+    string client_os = 4;
+}
+
+message S2C_Login{
+    int32 err_code = 1;
+    string token = 2;
+}
